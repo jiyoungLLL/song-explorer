@@ -1,10 +1,23 @@
+import { useRef } from 'react';
 import styled from 'styled-components';
 
-function SearchBar() {
+// eslint-disable-next-line react/prop-types
+function SearchBar({ onSearch }) {
+  // 특정 DOM 요소에 대해 컨트롤할 때 사용하는 Hook
+  // 값이 변경되어도 리렌더링 되지 않음 (!= useState())
+  // -> 검색 버튼을 눌러야만 리렌더링!!!
+  const inputRef = useRef();
+
   return (
     <div>
-      <Search />
-      <SearchButton>검색</SearchButton>
+      <Search ref={inputRef} />
+      <SearchButton
+        onClick={() => {
+          onSearch(inputRef.current.value);
+        }}
+      >
+        검색
+      </SearchButton>
     </div>
   );
 }
@@ -13,20 +26,20 @@ export default SearchBar;
 
 const Search = styled.input`
   position: relative;
-  width: 460px;
+  width: 360px;
   height: 40px;
   margin: 20px 0;
-  border-radius: 15px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
   border: 0.5px grey solid;
+  padding: 0 20px;
 `;
 
 const SearchButton = styled.button`
-  position: relative;
-  z-index: 100;
-  left: -50px;
-  width: 50px;
-  height: 43.8px;
+  width: 60px;
+  height: 41.5px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   border: 0.5px grey solid;
+  border-left: none;
 `;
