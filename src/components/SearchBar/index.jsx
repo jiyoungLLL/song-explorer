@@ -1,8 +1,10 @@
 import { useRef } from 'react';
 import styled from 'styled-components';
+import { useSearchTextStore } from '../../stores/useSearchTextStore';
 
-// eslint-disable-next-line react/prop-types
-function SearchBar({ onSearch }) {
+function SearchBar() {
+  const { setSearchText } = useSearchTextStore();
+
   // 특정 DOM 요소에 대해 컨트롤할 때 사용하는 Hook
   // 값이 변경되어도 리렌더링 되지 않음 (!= useState())
   // -> 검색 버튼을 눌러야만 리렌더링!!!
@@ -13,7 +15,7 @@ function SearchBar({ onSearch }) {
       <Search ref={inputRef} />
       <SearchButton
         onClick={() => {
-          onSearch(inputRef.current.value);
+          setSearchText(inputRef.current.value);
         }}
       >
         검색

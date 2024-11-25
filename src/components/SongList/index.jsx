@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
+import { useSearchTextStore } from '../../stores/useSearchTextStore';
 import Song from '../Song';
 
-// eslint-disable-next-line react/prop-types
-function SongList({ searchText }) {
+function SongList() {
+  const { searchText } = useSearchTextStore();
+
   // 처음엔 data가 undefined -> 리렌더링 일어나면서 가져옴
   const { data, isLoading } = useQuery({
     queryKey: ['getSong', searchText], // 새로 받은 건지 알기 위해 searchText 추가
