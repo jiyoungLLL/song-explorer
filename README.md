@@ -1,12 +1,31 @@
-<<<<<<< HEAD
 # song-explorer
-=======
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+노래 검색 서비스 만들기
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
->>>>>>> 93251f8 (initial commit)
+### 검색 화면 컴포넌트 구현
+
+### 검색 기능 구현 (API 연동: React Query/ / tanstack)
+
+    - https://pureani.tistory.com/4997
+    - 비동기(서버) 상태 관리 라이브러리
+    - 데이터 cache 관리를 해줌
+        - 서버에서 가져온 데이터를 재요청할 필요없게끔 cache
+    - https://tanstack.com/query/latest
+    - query - GET / mutation - POST, PUT …
+        - queryKey == cache할 데이터 이름
+
+### Zustand로 검색어 상태 관리
+
+    - reducer 방식
+
+### 찜하기 기능 구현 (Local Storage)
+
+    - https://github.com/hackurity01/sookmyung-univ-react/tree/dev/song-explorer/src/hooks
+
+### 찜한 노래 페이지 구현 (React Router)
+
+### 배포
+
+    - netlify, GitHub page, **vercel**
